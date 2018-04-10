@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.e6f11c2f21a90736459d3ad33aaa76c7.js", "./workbox-v3.0.1/workbox-sw.js");
+importScripts("./precache-manifest.67f2a467e6c3d0f8f808b38ed8c4b8dc.js", "./workbox-v3.0.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 /**
  * @file service-worker.js with workbox api
@@ -8,17 +8,14 @@ workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 
 /* globals WorkboxSW */
 
-const workboxSW = new WorkboxSW({
-    cacheId: 'pwa-cache',
-    ignoreUrlParametersMatching: [/^utm_/],
-    skipWaiting: true,
-    clientsClaim: true
-});
-
-
-// Define precache injection point.
-workboxSW.precache([]);
-
+// 2.1.3
+// const workboxSW = new WorkboxSW({
+//     cacheId: 'pwa-cache',
+//     ignoreUrlParametersMatching: [/^utm_/],
+//     skipWaiting: true,
+//     clientsClaim: true
+// });
+// workboxSW.precache([]);
 /**
  * example runningCache with api
  */
@@ -43,4 +40,17 @@ workboxSW.precache([]);
 //         }
 //     })
 // );
+
+workbox.core.setCacheNameDetails({
+  prefix: "pwa-cahce",
+  suffix: "v1",
+  precache: "install-time",
+  runtime: "run-time",
+  googleAnalytics: "ga"
+});
+
+
+// Define precache injection point.
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
