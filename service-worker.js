@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.877da7000ab327f13d40db17660ea86c.js", "./workbox-v3.0.1/workbox-sw.js");
+importScripts("./precache-manifest.b4b89ea0816217a7821d172901bf702f.js", "./workbox-v3.0.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 /**
  * @file service-worker.js with workbox api
@@ -53,4 +53,8 @@ workbox.core.setCacheNameDetails({
 // Define precache injection point.
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+//跳过install 和 active监听 覆盖老的service work
+workbox.skipWaiting();
+workbox.clientsClaim();
 
