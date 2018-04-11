@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.67f2a467e6c3d0f8f808b38ed8c4b8dc.js", "./workbox-v3.0.1/workbox-sw.js");
+importScripts("./precache-manifest.c82b4b987814dc7cacac79f9fddaf3b2.js", "./workbox-v3.0.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 /**
  * @file service-worker.js with workbox api
@@ -22,7 +22,7 @@ workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 // workboxSW.router.registerRoute(/^https:\/\/lavas\.baidu\.com\/some\/api/,
 //     workboxSW.strategies.networkFirst());
 
-
+// 3.0.1
 /**
  * example runningCache with resources from CDN
  * including maxAge, maxEntries
