@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.b4b89ea0816217a7821d172901bf702f.js", "./workbox-v3.0.1/workbox-sw.js");
+importScripts("./precache-manifest.d91e79a7c3f0775746b1a31cae5b10c4.js", "./workbox-v3.0.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 /**
  * @file service-worker.js with workbox api
@@ -54,7 +54,43 @@ workbox.core.setCacheNameDetails({
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-//跳过install 和 active监听 覆盖老的service work
+//跳过install 和 active监听 覆盖老的service work并激活
 workbox.skipWaiting();
 workbox.clientsClaim();
+
+// 策略 strategies
+workbox.routing.registerRoute(
+  "http://static.zhongan.com/website/public/js/jquery/v1.8.1/jquery-1.8.1.min.js",
+  // networkFirst 请求优先 
+  // cacheFirst 读取缓存 没有缓存更新
+  // staleWhileRevalidate 直接读取缓存 同时更新
+  // cacheOnly 
+  // networkOnly 
+  workbox.strategies.staleWhileRevalidate({
+    plugins: [
+      // 这个插件是让匹配的请求的符合开发者指定的条件的返回结果可以被缓存
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200]
+      })
+    ]
+  })
+);
+
+workbox.routing.registerRoute(
+  // Cache image files
+  /.*\.(?:png|jpg|jpeg|svg|gif)/,
+  // Use the cache if it's available
+  workbox.strategies.cacheFirst({
+    // Use a custom cache name
+    cacheName: "workbox:image",
+    plugins: [
+      new workbox.expiration.Plugin({
+        // Cache only 20 images
+        maxEntries: 20,
+        // Cache for a maximum of a week
+        maxAgeSeconds: 7 * 24 * 60 * 60
+      })
+    ]
+  })
+);
 

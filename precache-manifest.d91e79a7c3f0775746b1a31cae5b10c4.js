@@ -41,14 +41,11 @@ self.__precacheManifest = [
     "url": "./static/js/4.6931c83136151dbc87ca.js.gz"
   },
   {
-    "revision": "d246feb57451b67393ef0775cc2362fb",
-    "url": "workbox-v3.0.1/workbox-google-analytics.prod.js"
-  },
-  {
     "url": "./static/js/2.fb0b5b29322fb8f58bbf.js.gz"
   },
   {
-    "url": "./static/js/3.dc393f6484e9284f046a.js.gz"
+    "revision": "d246feb57451b67393ef0775cc2362fb",
+    "url": "workbox-v3.0.1/workbox-google-analytics.prod.js"
   },
   {
     "revision": "d63d487fd91e4223a1f5bf87f994cd8d",
@@ -57,6 +54,9 @@ self.__precacheManifest = [
   {
     "revision": "82e09431bd4f19afddee2ade24911529",
     "url": "workbox-v3.0.1/workbox-cacheable-response.prod.js"
+  },
+  {
+    "url": "./static/js/3.dc393f6484e9284f046a.js.gz"
   },
   {
     "url": "./static/js/vendor.1dcedf95646f2991c2a8.js.gz"
@@ -85,12 +85,12 @@ self.__precacheManifest = [
     "url": "./static/pic/bluerenzheng.png"
   },
   {
-    "revision": "89a04c6e5cffcd1886ae430cf9965c7e",
-    "url": "./static/pic/balogo.png"
-  },
-  {
     "revision": "a65d201dd8af3f285af22444f657630e",
     "url": "./static/pic/greenrenzheng.png"
+  },
+  {
+    "revision": "89a04c6e5cffcd1886ae430cf9965c7e",
+    "url": "./static/pic/balogo.png"
   },
   {
     "revision": "d78e2364e41d7fce06419042c1c595c1",
