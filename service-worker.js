@@ -1,4 +1,4 @@
-importScripts("./precache-manifest.010dea4154c283c6e04281f429d7d2b6.js", "./workbox-v3.0.1/workbox-sw.js");
+importScripts("./precache-manifest.589bc5198bd1310c688ac1da609bb036.js", "./workbox-v3.0.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.0.1"});
 /**
  * @file service-worker.js with workbox api
@@ -84,6 +84,9 @@ workbox.routing.registerRoute(
     // Use a custom cache name
     cacheName: "workbox:image",
     plugins: [
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200]
+      }),
       new workbox.expiration.Plugin({
         // Cache only 20 images
         maxEntries: 20,
